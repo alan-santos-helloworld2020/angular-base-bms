@@ -1,1 +1,55 @@
-<p>form-cadastro works!</p>
+<section class="vh-100 d-flex justify-content-center align-items-center bg-dark">
+  <div class="col-5 mx-auto">
+    <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()" #formDir="ngForm">
+      <div class="mb-3">
+        <input type="hidden" formControlName="idCliente" class="form-control" name="idCliente" id="idCliente">
+      </div>
+      <div class="mb-3">
+        <label for="nome" class="form-label text-white">
+          Nome<span class="text-danger">*</span>
+        </label>
+        <input type="text" formControlName="nome" class="form-control" name="nome" id="nome">
+        <span *ngIf="getErros('nome')" class="text-danger">
+          campo obrigatório
+        </span>
+      </div>
+      <div class="mb-3">
+        <label for="telefone" class="form-label text-white">
+          Telefone<span class="text-danger">*</span>
+        </label>
+        <input type="tel" formControlName="telefone" class="form-control" name="telefone" id="telefone">
+        <span *ngIf="getErros('telefone')" class="text-danger">
+          campo obrigatório
+        </span>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label text-white">
+          Email<span class="text-danger">*</span>
+        </label>
+        <input type="email" formControlName="email" class="form-control" name="email" id="email">
+        <span *ngIf="getErros('email')" class="text-danger">
+          campo obrigatório
+        </span>
+      </div>
+      <div class="mb-3">
+        <label for="cep" class="form-label text-white">
+          Cep<span class="text-danger">*</span>
+        </label>
+        <input type="cep" formControlName="cep" class="form-control" name="cep" id="cep">
+        <span *ngIf="getErros('cep')" class="text-danger">
+          campo obrigatório
+        </span>
+      </div>
+      <div class="col-12 d-flex justify-content-end">
+        <button type="button" class="d-flex btn btn-danger me-2">
+          <i class="material-icons me-2">delete</i>
+          <span>LIMPAR</span>
+        </button>
+        <button type="submit" class="d-flex btn btn-primary">
+          <i class="material-icons me-2">send</i>
+          <span>SALVAR</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
